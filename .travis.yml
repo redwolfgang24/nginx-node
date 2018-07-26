@@ -28,4 +28,4 @@ jobs:
         - docker push $DOCKER_REPO
     - stage: deploy
       script:
-        - docker pull redwolfgang20/nginx-node
+        - docker pull $DOCKER_REPO
