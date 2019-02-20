@@ -1,12 +1,12 @@
 FROM nginx:1.14.2
 
 RUN apt-get update \
-  && apt-get install -y curl git bzip2 libfontconfig1-dev xz-utils gpg
+  && apt-get install -y curl git bzip2 libfontconfig1-dev xz-utils gnupg2
 
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
 
-# gpg keys listed at https://github.com/nodejs/node
+# gpg2 keys listed at https://github.com/nodejs/node
 RUN set -ex \
   && for key in \
     4ED778F539E3634C779C87C6D7062848A1AB005C \
@@ -21,7 +21,7 @@ RUN set -ex \
     DD8F2338BAE7501E3DD5AC78C273792F7D83545D \
     A48C2BEE680E841632CD4E44F07496B3EB3C1762 \
   ; do \
-    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
+    gpg2 --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
 ENV NPM_CONFIG_LOGLEVEL info
