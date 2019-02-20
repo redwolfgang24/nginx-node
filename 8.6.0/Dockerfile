@@ -1,7 +1,7 @@
 FROM nginx:1.14.2
 
 RUN apt-get update \
-  && apt-get install -y curl git bzip2 libfontconfig1-dev xz-utils
+  && apt-get install -y curl git bzip2 libfontconfig1-dev xz-utils gpg
 
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
