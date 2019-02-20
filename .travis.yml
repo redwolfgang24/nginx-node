@@ -9,7 +9,6 @@ matrix:
 language: node_js
 
 node_js:
-  - "7"
   - "8"
 
 before_script:
@@ -17,11 +16,6 @@ before_script:
 
 jobs:
   include:
-    - stage: 7.4.0 - 1.9.12
-      script:
-        - docker build -t $DOCKER_REPO:7.4.0 7.4.0
-        - docker tag $DOCKER_REPO:7.4.0 $DOCKER_REPO:7.4.0
-        - docker push $DOCKER_REPO
     - stage: 8.6.0 - 1.14.2
       script:
         - docker build -t $DOCKER_REPO:8.6.0 8.6.0
