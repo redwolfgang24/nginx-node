@@ -23,7 +23,7 @@ jobs:
         - docker push $DOCKER_REPO:8.6.0
     - stage: latest
       script:
-        - docker build -t $DOCKER_REPO:latest 8.6.0
+        - docker build -t $DOCKER_REPO:latest latest
         - docker tag $DOCKER_REPO:latest $DOCKER_REPO:latest
         - docker push $DOCKER_REPO
     - stage: deploy
