@@ -16,16 +16,16 @@ before_script:
 
 jobs:
   include:
-    - stage: 8.6.0 - 1.14.2
-      script:
-        - docker build -t $DOCKER_REPO:8.6.0 8.6.0
-        - docker tag $DOCKER_REPO:8.6.0 $DOCKER_REPO:8.6.0
-        - docker push $DOCKER_REPO:8.6.0
-    - stage: latest
+    #- stage: 8.6.0 - 1.14.2
+    #  script:
+    #    - docker build -t $DOCKER_REPO:8.6.0 8.6.0
+    #    - docker tag $DOCKER_REPO:8.6.0 $DOCKER_REPO:8.6.0
+    #    - docker push $DOCKER_REPO:8.6.0
+    - stage: latest - (8.6.0 - latest)
       script:
         - docker build -t $DOCKER_REPO:latest latest
         - docker tag $DOCKER_REPO:latest $DOCKER_REPO:latest
         - docker push $DOCKER_REPO
-    - stage: deploy
-      script:
-        - docker pull $DOCKER_REPO
+    #- stage: deploy
+    #  script:
+    #    - docker pull $DOCKER_REPO
