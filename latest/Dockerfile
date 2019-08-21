@@ -6,7 +6,8 @@ RUN apt-get update \
 RUN echo "deb [arch=amd64] http://nginx.org/packages/mainline/ubuntu/ bionic nginx" >> /etc/apt/sources.list.d/nginx.list
 RUN echo "deb-src http://nginx.org/packages/mainline/ubuntu/ bionic nginx" >> /etc/apt/sources.list.d/nginx.list
 
-RUN wget http://nginx.org/keys/nginx_signing.key | apt-key add -
+RUN wget http://nginx.org/keys/nginx_signing.key
+RUN apt-key add nginx_signing.key
 RUN apt-get -y update
 RUN apt-get remove nginx nginx-common nginx-full nginx-core
 
