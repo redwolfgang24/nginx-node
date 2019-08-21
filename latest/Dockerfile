@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update \
-  && apt-get install -y curl git bzip2
+  && apt-get install -y curl wget git bzip2
 
 RUN echo "deb [arch=amd64] http://nginx.org/packages/mainline/ubuntu/ bionic nginx" >> /etc/apt/sources.list.d/nginx.list
 RUN echo "deb-src http://nginx.org/packages/mainline/ubuntu/ bionic nginx" >> /etc/apt/sources.list.d/nginx.list
