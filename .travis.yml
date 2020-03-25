@@ -9,7 +9,7 @@ matrix:
 language: node_js
 
 node_js:
-  - "8.6.0"
+  - "12.8.0"
 
 before_script:
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
@@ -21,11 +21,16 @@ jobs:
     #    - docker build -t $DOCKER_REPO:8.6.0 8.6.0
     #    - docker tag $DOCKER_REPO:8.6.0 $DOCKER_REPO:8.6.0
     #    - docker push $DOCKER_REPO:8.6.0
-    - stage: latest - (8.6.0 - latest)
-      script:
-        - docker build -t $DOCKER_REPO:latest latest
-        - docker tag $DOCKER_REPO:latest $DOCKER_REPO:latest
-        - docker push $DOCKER_REPO
+    - stage: 12.8.0 - latest
+     script:
+       - docker build -t $DOCKER_REPO:12.8.0 12.8.0
+       - docker tag $DOCKER_REPO:12.8.0 $DOCKER_REPO:12.8.0
+       - docker push $DOCKER_REPO:12.8.0
+    # - stage: latest - (8.6.0 - latest)
+    #   script:
+    #     - docker build -t $DOCKER_REPO:latest latest
+    #     - docker tag $DOCKER_REPO:latest $DOCKER_REPO:latest
+    #     - docker push $DOCKER_REPO
     #- stage: deploy
     #  script:
     #    - docker pull $DOCKER_REPO
